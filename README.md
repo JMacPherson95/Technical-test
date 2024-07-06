@@ -1,6 +1,6 @@
 To run this project:
 
-clone it onto your machine.
+clone it onto your machine. (Or download a zip, unzip it and then drag the folder into an empty project)
 Create a .env file in the server folder and add the env variable (I will supply).
 Open the terminal in your IDE, cd into the front end folder and run npm install
 Open up another terminal, cd into the server folder and run npm install.
