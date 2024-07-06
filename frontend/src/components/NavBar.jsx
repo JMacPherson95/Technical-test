@@ -4,6 +4,7 @@ import '../styles/Landing.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logoutSuccess } from '../store/authSlice.js';
+import { BASE_URL } from '../../config';
 
 import classes from '../styles/NavBar.module.css';
 
@@ -27,7 +28,7 @@ const NavBar = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('http://localhost:3000/logout', {
+      const response = await fetch(`${BASE_URL}/logout`, {
         method: 'POST',
         credentials: 'include',
       });

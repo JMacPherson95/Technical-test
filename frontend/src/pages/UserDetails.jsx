@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { BASE_URL } from '../../config';
 import classes from '../styles/UserDetails.module.css';
 
 function UserDetails() {
@@ -8,7 +9,7 @@ function UserDetails() {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await fetch('http://localhost:3000/user-details', {
+        const response = await fetch(`${BASE_URL}/user-details`, {
           method: 'GET',
           credentials: 'include',
         });

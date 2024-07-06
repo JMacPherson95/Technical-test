@@ -1,5 +1,7 @@
+import { BASE_URL } from "../../config";
+
 export default async function loginUser(userDetails) {
-    const response = await fetch('http://localhost:3000/login', {
+    const response = await fetch(`${BASE_URL}/login`, {
         method: 'POST',
         body: JSON.stringify(userDetails),
         credentials: 'include',
