@@ -1,0 +1,8 @@
+.inputLayout {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputLabel {
+  margin-top: 1rem;
+}

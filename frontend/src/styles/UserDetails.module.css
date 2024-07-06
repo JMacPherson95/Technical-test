@@ -1,0 +1,16 @@
+.details {
+  text-align: center;
+  margin-top: 10rem;
+  font-weight: 600;
+}
+
+.errorDetails {
+  text-align: center;
+  margin-top: 10rem;
+  font-weight: 600;
+}
+
+.title {
+  text-align: center;
+  margin: 0.5rem;
+}

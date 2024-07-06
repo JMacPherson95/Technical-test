@@ -1,0 +1,63 @@
+.options {
+  width: 32rem;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  background: radial-gradient(#3c0478, #2c0f4b);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem;
+  align-items: center;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto; /* Center items horizontally */
+}
+
+.inputField {
+  width: 20rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  margin-bottom: 0.1rem; /* Add margin between inputs */
+  margin-top: 0.2rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonContainer button {
+  margin-left: 0.5rem; /* Add margin between buttons */
+  height: 2.5rem;
+  width: 7rem;
+  margin: 2rem;
+  font-size: large;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  color: white;
+}
+
+.title {
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.inputError {
+  text-align: left;
+  color: white;
+  font-size: small;
+}
+
+.registerLink {
+  color: white;
+  margin-bottom: 0.5rem;
+}
