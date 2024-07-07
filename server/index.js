@@ -29,7 +29,6 @@ app.use(express.urlencoded({ extended: false }));
 app.post("/login", async (req, res) => {
 
   const { email, password } = req.body;
-  console.log(`Received email: ${email}, password: ${password}`);
 
   try {
     const user = await User.findOne({ email: email });
@@ -74,16 +73,20 @@ app.post("/login", async (req, res) => {
 
 const userRegistrationValidationRules = Joi.object({
   firstName: Joi.string()
-    .regex(/^[A-Za-z]+$/)
+    .trim()
+    .regex(/^[A-Za-z\s-]+$/)
     .required(),
   lastName: Joi.string()
-    .regex(/^[A-Za-z]+$/)
+    .trim()
+    .regex(/^[A-Za-z\s-]+$/)
     .required(),
   email: Joi.string()
-    .email({ minDomainSegments: 2, tlds: { allow: false } }) // Ensure valid email format with Joi's built-in email validation
+    .email({ minDomainSegments: 2, tlds: { allow: false } })
     .pattern(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/),
 
-  password: Joi.string().required(),
+  password: Joi.string()
+    .required()
+    .min(6),
 });
 
 
