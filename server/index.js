@@ -12,6 +12,7 @@ const { verifyToken, logout } = require("./helpers/auth.js");
 
 
 const { MONGODB_URI, PORT, JWT_SECRET } = process.env;
+
 const app = express();
 
 app.use(cors({
@@ -23,7 +24,6 @@ const saltRounds = 10;
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-console.log(MONGODB_URI);
 
 
 app.post("/login", async (req, res) => {
@@ -79,7 +79,9 @@ const userRegistrationValidationRules = Joi.object({
   lastName: Joi.string()
     .regex(/^[A-Za-z]+$/)
     .required(),
-  email: Joi.string().email().required(),
+  email: Joi.string()
+    .email({ minDomainSegments: 2, tlds: { allow: false } }) // Ensure valid email format with Joi's built-in email validation
+    .pattern(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/),
 
   password: Joi.string().required(),
 });
@@ -89,7 +91,7 @@ app.post("/register", async (req, res) => {
   const { error, value } = userRegistrationValidationRules.validate(req.body);
 
   if (error) {
-    res.status(400).json({ message: 'Please input a valid first and last name.' });
+    res.status(400).json({ message: 'Please enter valid details.' });
     return;
   }
 
@@ -134,7 +136,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then((client) => {
+  .then(() => {
     console.log("Mongoose is connected...");
     app.listen(PORT, () => {
       console.log(`Server started at port ${PORT}`);

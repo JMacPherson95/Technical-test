@@ -2,7 +2,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import HomePage from './pages/Home';
 import RootLayout from './pages/Root';
 import Register from './pages/Register';
-// import LandingPage from './pages/Landing';
 import Login from './pages/Login';
 import UserDetails from './pages/UserDetails';
 import ErrorPage from '../src/pages/Error';

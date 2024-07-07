@@ -36,7 +36,11 @@ function Register() {
     didEdit.confirmPassword &&
     enteredValues.password !== enteredValues.confirmPassword;
 
-  const emailIsInvalid = didEdit.email && !enteredValues.email.includes('@');
+  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+  const emailIsInvalid = didEdit.email && !emailRegex.exec(enteredValues.email);
+
+  // const emailIsInvalid = didEdit.email && !enteredValues.email.includes('@');
   const passwordIsInvalid =
     didEdit.password &&
     (!enteredValues.password || enteredValues.password.length < 6);
