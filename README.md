@@ -2,7 +2,7 @@
 
 This application needs a minimum node version of 16.17.1
 
-This project consists of register, login/logout functionality. It also contains a home page and a page for returning the logged in users details.
+This project consists of register, login/logout functionality. It also contains a home page, landing page and a page for returning the logged in users details.
 The stack used for this consists of:
 
 - Node.js
