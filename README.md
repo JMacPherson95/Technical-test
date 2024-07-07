@@ -64,5 +64,6 @@ Now you need to install the dependencies into both folders. To do this you need 
 - Navigate back to the terminal window that is currently in the frontend directory
 - In there, run the following command:
   `npm run dev`
-- Doing that will start the frontend (Vite)
+- Doing that will start the frontend (Vite). If started successfully, you will see the following in the terminal:
+  `http://localhost:5173/`
 - On your browser, navigate to localhost:5173
