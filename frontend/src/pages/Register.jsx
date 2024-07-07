@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import classes from '../styles/Form.module.css';
 import Button from '../components/Button';
@@ -8,6 +9,7 @@ import InputField from '../components/InputField';
 import registerUser from '../helpers/registerHelper.js';
 
 function Register() {
+  const loggedIn = useSelector((state) => state.auth.loggedIn);
   const [enteredValues, setEnteredValues] = useState({
     firstName: '',
     lastName: '',
@@ -45,6 +47,12 @@ function Register() {
     didEdit.password &&
     (!enteredValues.password || enteredValues.password.length < 6);
 
+  useEffect(() => {
+    if (loggedIn) {
+      navigate('/');
+    }
+  }, [loggedIn, navigate]);
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -64,7 +72,7 @@ function Register() {
     try {
       await registerUser(enteredValues);
       setErrorMessage('');
-      navigate('/');
+      navigate('/login');
     } catch (error) {
       setErrorMessage(error.message);
     }

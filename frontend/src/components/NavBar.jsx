@@ -38,7 +38,7 @@ const NavBar = () => {
 
       dispatch(logoutSuccess());
       setMessage('Successfully logged out');
-      navigate('/');
+      navigate('/login');
       setShowMessage(true);
       console.log('Logged out successfully.');
     } catch (error) {
@@ -56,20 +56,31 @@ const NavBar = () => {
   return (
     <nav className={classes.navbar}>
       <div className="div-logo">
-        <Link to="/home">
+        <Link to="/">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </Link>
       </div>
       <div className={classes.navbarButtons}>
+        {loggedIn && (
+          <Link to="/landing" className={classes.navbarButton}>
+            landing
+          </Link>
+        )}
         <Link to="/user-details" className={classes.navbarButton}>
           My Details
         </Link>
+
+        {!loggedIn && (
+          <Link to="/register" className={classes.navbarButton}>
+            Register
+          </Link>
+        )}
         {loggedIn ? (
           <Link onClick={handleLogout} className={classes.navbarButton}>
             Logout
           </Link>
         ) : (
-          <Link to="/" className={classes.navbarButton}>
+          <Link to="/login" className={classes.navbarButton}>
             Login
           </Link>
         )}

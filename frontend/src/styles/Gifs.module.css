@@ -1,0 +1,20 @@
+.gifs {
+  height: 22rem;
+  width: 50rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.gifContainer {
+  height: 25rem;
+  width: 50rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.sectionContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

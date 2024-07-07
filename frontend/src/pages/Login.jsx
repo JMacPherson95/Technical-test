@@ -17,7 +17,7 @@ function Login() {
 
   useEffect(() => {
     if (loggedIn) {
-      navigate('/home');
+      navigate('/landing');
     }
   }, [loggedIn, navigate]);
 
@@ -51,7 +51,7 @@ function Login() {
       await loginUser(enteredValues);
       dispatch(loginSuccess());
       setErrorMessage('');
-      navigate('/home');
+      navigate('/landing');
     } catch (error) {
       setErrorMessage(error.message);
     }

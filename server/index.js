@@ -135,10 +135,7 @@ app.post('/logout', logout);
 
 //database connection
 mongoose
-  .connect(MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(MONGODB_URI)
   .then(() => {
     console.log("Mongoose is connected...");
     app.listen(PORT, () => {
