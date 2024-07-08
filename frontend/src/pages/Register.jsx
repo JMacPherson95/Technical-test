@@ -202,7 +202,7 @@ function Register() {
         <div className={classes.buttonContainer}>
           <Button>Register</Button>
         </div>
-        <Link to="/" className={classes.registerLink}>
+        <Link to="/login" className={classes.registerLink}>
           Already have an account? Login here.
         </Link>
       </div>
